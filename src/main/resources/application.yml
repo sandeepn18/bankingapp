@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:test
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  h2:
+    console:
+      enabled: true  # Enables the H2 console for debugging
+      path: /h2-console  # Console path
+  jpa:
+    hibernate:
+      ddl-auto: update  # Can be 'create', 'update', 'validate', or 'none'
+    show-sql: true  # Displays SQL statements in the logs
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+
