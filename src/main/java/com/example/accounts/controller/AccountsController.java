@@ -25,4 +25,19 @@ accountsService.createAccount(customerDTO);
                 .body(new ResponseDTO(AccountConstants.STATUS_201, AccountConstants.MESSAGE_201));
 
     }
+    @GetMapping("/fetch")
+    public ResponseEntity<CustomerDTO> getAccount(@RequestParam String mobileNumber ){
+        CustomerDTO customerDTO = accountsService.getAccount(mobileNumber);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(customerDTO);
+
+    }
+    @PutMapping("/update")
+    public ResponseEntity<Boolean> updateAccount(@RequestBody CustomerDTO customerDTO) {
+        boolean isUpdated = accountsService.updateAcount(customerDTO);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(isUpdated);
+    }
 }

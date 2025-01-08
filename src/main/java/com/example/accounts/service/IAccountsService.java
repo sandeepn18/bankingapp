@@ -1,5 +1,6 @@
 package com.example.accounts.service;
 
+import com.example.accounts.Entity.Customer;
 import com.example.accounts.dto.CustomerDTO;
 
 public interface IAccountsService {
@@ -9,4 +10,6 @@ public interface IAccountsService {
      * @param customerDTO customer data to create a new account
      */
     void createAccount(CustomerDTO customerDTO);
+    CustomerDTO getAccount(String mobileNumber );
+    boolean updateAcount(CustomerDTO customerDTO);
 }
