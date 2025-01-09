@@ -1,12 +1,16 @@
 package com.example.accounts.dto;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
 
 public class AccountsDTO {
-
+@NotEmpty(message = "should not be empty")
     private Long accountNumber;
+@NotEmpty(message = "should not be empty")
     private String accountType;
+@NotEmpty(message = "should not be empty")
     private String branchAddress;
 
     public Long getAccountNumber() {
