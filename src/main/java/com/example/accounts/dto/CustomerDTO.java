@@ -1,5 +1,6 @@
 package com.example.accounts.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
@@ -7,6 +8,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
+@Schema(name="Customer", description = "Customer details")
 public class CustomerDTO {
     @NotEmpty(message = "name should not be empty")
     @Size(min = 2, message = "name should have at least 2 characters")
