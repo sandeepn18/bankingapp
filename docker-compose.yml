@@ -1,0 +1,40 @@
+services:
+  accounts:
+    image: "sandeepn6262/accounts:v2"
+    container_name: accounts-ms
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - sandeepn6262
+  loans:
+    image: "sandeepn6262/loans:v1"
+    container_name: loans-ms
+    ports:
+      - "8090:8090"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - sandeepn6262
+  cards:
+    image: "sandeepn6262/cardsms:v1"
+    container_name: cards-ms
+    ports:
+      - "9000:9000"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - sandeepn6262
+networks:
+  sandeepn6262:
+    driver: "bridge"
+
+
+
