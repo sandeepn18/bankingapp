@@ -1,6 +1,7 @@
 package com.example.accounts.controller;
 
 import com.example.accounts.Constants.AccountConstants;
+import com.example.accounts.dto.AccountsContactInfoDto;
 import com.example.accounts.dto.CustomerDTO;
 import com.example.accounts.dto.ResponseDTO;
 import com.example.accounts.service.IAccountsService;
@@ -9,7 +10,9 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +27,12 @@ public class AccountsController {
 
     @Autowired
     private IAccountsService accountsService;
+
+    @Value("${build.version}")
+    private String buildVersion;
+
+    @Autowired
+    private AccountsContactInfoDto accountsContactInfoDto;
 
     @PostMapping("/create")
     @Operation(summary = "Create a new account with the given customer data", description = "please try these APIs")
@@ -75,5 +84,21 @@ accountsService.createAccount(customerDTO);
 
 
     }
+
+    @GetMapping("/build-info")
+    public ResponseEntity<String> getBuildInfo(){
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(buildVersion);
+    }
+
+    @GetMapping("/contact-info")
+    public ResponseEntity<AccountsContactInfoDto> getContactInfo(){
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(accountsContactInfoDto);
+    }
+
+
 
 }

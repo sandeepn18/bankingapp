@@ -15,4 +15,20 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
+  config:
+    import:
+      - "application_qa.yml"
+      - "application_prod.yml"
+  profiles:
+    active: "prod"
+build:
+  version: "1.0"
 
+accounts:
+  message: "Welcome to Account service"
+  contactDetails:
+    name: "John Doe"
+    email: "Ig7dF@example.com"
+  onCallSupport:
+    - 12345
+    - 67890
