@@ -13,5 +13,5 @@ accounts:
     name: "John Doe PROD"
     email: "Ig7dF@examplePROD.com"
   onCallSupport:
-    - 54321
+    - 54322
     - 87654
