@@ -11,6 +11,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @EnableConfigurationProperties(AccountsContactInfoDto.class)
@@ -20,6 +21,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 		contact = @Contact(name = "Sandeep", email= "sandeepn6262@gmail.com"),
 license = @License(name = "Apache 2.0", url = "https://www.apache.org/licenses/LICENSE-2.0")),
 externalDocs = @ExternalDocumentation(description = "please refer tothis documentation", url = "https://www.google.com"))
+@EnableFeignClients
 public class AccountsApplication {
 
 	public static void main(String[] args) {
